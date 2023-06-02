@@ -456,10 +456,14 @@ PrefabInstance:
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: mobPrefab
       value: 
-      objectReference: {fileID: 8834615890343037422, guid: 286113889b104415d929a19afed2cf54, type: 3}
+      objectReference: {fileID: 3541185168769535514, guid: f6bebbb81b92e4a929f22941672c36f2, type: 3}
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: spawnRate
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
+      propertyPath: spawnDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: parentGroup
@@ -475,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 181322816}
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: remainingSpawns
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021162, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: m_RootOrder
@@ -483,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021162, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.42
+      value: 32.57
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021162, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -491,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021162, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.61
+      value: 43.04
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021162, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1138,7 +1142,7 @@ PrefabInstance:
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: mobPrefab
       value: 
-      objectReference: {fileID: 8834615890343037422, guid: 286113889b104415d929a19afed2cf54, type: 3}
+      objectReference: {fileID: 7058277646683916519, guid: 923e87fc2f24c459b920446807b7030e, type: 3}
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: spawnRate
       value: 1
@@ -1773,8 +1777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86af51597cd074f3c8a814063bfd7fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFov: 20
-  maxFov: 70
+  minFov: 45
+  maxFov: 80
   initialFov: 60
   changeInterval: 5
 --- !u!1 &1160592698
@@ -2978,6 +2982,10 @@ PrefabInstance:
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: spawnRate
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
+      propertyPath: spawnDelay
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3903003148593021156, guid: aa087caaaf59d44f08d094200e586ff4, type: 3}
       propertyPath: parentGroup
