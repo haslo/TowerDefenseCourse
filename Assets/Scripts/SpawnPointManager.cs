@@ -1,15 +1,25 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SpawnPointManager : MonoBehaviour
-{
+public class SpawnPointManager : MonoBehaviour {
     [SerializeField] private GameObject mobPrefab;
     [SerializeField] private Transform goalPosition;
     [SerializeField] private Transform parentGroup;
 
-    void Start()
-    {
-        InvokeRepeating(nameof(Spawner), 1, 0.3f);
+    [SerializeField] private int spawnCount = 100;
+
+    public int SpawnCount {
+        get => spawnCount;
+        set => spawnCount = value;
+    }
+
+    [SerializeField] private float spawnRate = 0.3f;
+    [SerializeField] private float spawnDelay = 1f;
+
+    [SerializeField] private SpawnPointManager manager;
+
+    void Start() {
+        InvokeRepeating(nameof(Spawner), spawnDelay, spawnRate);
     }
 
     void Spawner() {
