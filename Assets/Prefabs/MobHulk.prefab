@@ -16,6 +16,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8834615890343037417, guid: 286113889b104415d929a19afed2cf54, type: 3}
+      propertyPath: m_Acceleration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834615890343037417, guid: 286113889b104415d929a19afed2cf54, type: 3}
       propertyPath: avoidancePriority
       value: 49
       objectReference: {fileID: 0}
