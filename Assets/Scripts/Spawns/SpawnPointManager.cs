@@ -1,32 +1,30 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SpawnPointManager : MonoBehaviour {
     [SerializeField] private GameObject mobPrefab;
     [SerializeField] private Transform goalPosition;
     [SerializeField] private Transform parentGroup;
 
-    [SerializeField] private int spawnCount = 100;
-
-    public int SpawnCount {
-        get => spawnCount;
-        set => spawnCount = value;
-    }
-
+    [SerializeField] private int remainingSpawns = 1000;
     [SerializeField] private float spawnRate = 0.3f;
     [SerializeField] private float spawnDelay = 1f;
 
-    [SerializeField] private SpawnPointManager manager;
+    public int RemainingSpawns => remainingSpawns;
 
-    void Start() {
-        InvokeRepeating(nameof(Spawner), spawnDelay, spawnRate);
+    private void Start() {
+        InvokeRepeating(nameof(DoSpawn), spawnDelay, spawnRate);
     }
 
-    void Spawner() {
+    private void DoSpawn() {
         float angle = Random.Range(0, 360);
         Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
         GameObject mob = Instantiate(mobPrefab, spawnPosition, Quaternion.identity);
-        mob.GetComponent<FindGoal>().SetGoal(goalPosition);
+        var behaviour = mob.GetComponent<MobBehaviour>();
+        mob.GetComponent<MobBehaviour>().SetGoal(goalPosition);
         mob.transform.SetParent(parentGroup);
+        remainingSpawns -= 1;
+        if (remainingSpawns <= 0) {
+            CancelInvoke(nameof(DoSpawn));
+        }
     }
 }

@@ -6,7 +6,7 @@ public class RandomlyMove : MonoBehaviour {
 
     [SerializeField] private float goalDelta = 10f;
 
-    void Start() {
+    private void Start() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         InvokeRepeating(nameof(DoRandomMove), 1, goalDelta);
     }

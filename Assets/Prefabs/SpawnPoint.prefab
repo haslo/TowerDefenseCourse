@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3903003148593021157}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,10 @@ MonoBehaviour:
   mobPrefab: {fileID: 0}
   goalPosition: {fileID: 0}
   parentGroup: {fileID: 0}
+  remainingSpawns: 1000
+  spawnRate: 0.3
+  spawnDelay: 1
+  levelManager: {fileID: 0}
 --- !u!195 &3903003148593021157
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -194,7 +198,7 @@ GameObject:
   - component: {fileID: 3903003149038689049}
   m_Layer: 0
   m_Name: GlowingCube
-  m_TagString: start
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
