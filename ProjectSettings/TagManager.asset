@@ -6,6 +6,8 @@ TagManager:
   tags:
   - goob
   - SpawnPoint
+  - OccupiedPlatform
+  - EmptyPlatform
   layers:
   - Default
   - TransparentFX
