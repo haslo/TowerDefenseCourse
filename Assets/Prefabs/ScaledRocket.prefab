@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScaledRocket
       objectReference: {fileID: 0}
+    - target: {fileID: 5977019458999684295, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 6465325370197825149, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -85,5 +89,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.013792681, y: 0.011717838, z: 0.013663448}
-  m_Center: {x: 0, y: 0.005858919, z: 2.7755576e-17}
+  m_Size: {x: 0.014617301, y: 0.011717839, z: 0.013663448}
+  m_Center: {x: 0.00007496317, y: 0.0058589196, z: 2.7755576e-17}

@@ -1,17 +1,24 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UserInterfaceInterface : MonoBehaviour {
-    private GameObject focusObject;
+    private GameObject newTurret;
+    private GameObject menuTurret;
 
     [SerializeField] private GameObject rocketTurretPrefab;
     [SerializeField] private GameObject gatlingTurretPrefab;
+
+    [SerializeField] private GameObject turretPopup;
+    private Dictionary<GameObject, GameObject> turretBases;
 
     private Camera mainCamera;
 
     private void Start() {
         mainCamera = Camera.main;
+        turretBases = new Dictionary<GameObject, GameObject>();
+        turretPopup.SetActive(false);
     }
 
     public void CreateRocketTurret() {
@@ -27,39 +34,66 @@ public class UserInterfaceInterface : MonoBehaviour {
         if (!Physics.Raycast(ray, out var hit)) {
             return;
         }
-        focusObject = Instantiate(prefab, hit.point, prefab.transform.rotation);
-        var focusCollider = focusObject.GetComponentInChildren<Collider>();
+        newTurret = Instantiate(prefab, hit.point, prefab.transform.rotation);
+        var focusCollider = newTurret.GetComponentInChildren<Collider>();
         if (focusCollider) {
             focusCollider.enabled = false;
         }
     }
 
+    public void TurretPopupUpgrade() {
+        // TODO
+    }
+
+    public void TurretPopupDelete() {
+        turretBases[menuTurret].tag = "EmptyPlatform";
+        turretBases.Remove(menuTurret);
+        Destroy(menuTurret);
+        turretPopup.SetActive(false);
+    }
+
+    public void TurretPopupClose() {
+        turretPopup.SetActive(false);
+    }
+
     private void Update() {
         if (Input.GetMouseButtonDown(0)) { // if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
-            // noop, this now happens with buttons
-        } else if (focusObject && Input.GetMouseButton(0)) { // if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (turretPopup.activeSelf) {
+                return;
+            }
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition); // Input.GetTouch(0).position
+            if (!Physics.Raycast(ray, out var hit)) {
+                return;
+            }
+            var collidedObject = hit.collider.gameObject;
+            if (collidedObject.CompareTag("Turret")) {
+                menuTurret = collidedObject;
+                turretPopup.SetActive(true);
+            }
+        } else if (newTurret && Input.GetMouseButton(0)) { // if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (!Physics.Raycast(ray, out var hit)) {
                 return;
             }
-            focusObject.transform.position = hit.point;
-        } else if (focusObject && Input.GetMouseButtonUp(0)) { // if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            newTurret.transform.position = hit.point;
+        } else if (newTurret && Input.GetMouseButtonUp(0)) { // if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (!Physics.Raycast(ray, out var hit))
                 return;
             var collidedObject = hit.collider.gameObject;
             if (collidedObject.CompareTag("EmptyPlatform") && hit.normal == Vector3.up) {
                 var collidedPosition = collidedObject.transform.position;
-                focusObject.transform.position = new Vector3(collidedPosition.x, focusObject.transform.position.y, collidedPosition.z);
+                newTurret.transform.position = new Vector3(collidedPosition.x, newTurret.transform.position.y, collidedPosition.z);
                 collidedObject.tag = "OccupiedPlatform";
-                var focusCollider = focusObject.GetComponentInChildren<Collider>();
+                turretBases[newTurret] = collidedObject;
+                var focusCollider = newTurret.GetComponentInChildren<Collider>();
                 if (focusCollider) {
                     focusCollider.enabled = true;
                 }
             } else {
-                Destroy(focusObject);
+                Destroy(newTurret);
             }
-            focusObject = null;
+            newTurret = null;
         }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - OccupiedPlatform
   - EmptyPlatform
+  - Turret
   layers:
   - Default
   - TransparentFX

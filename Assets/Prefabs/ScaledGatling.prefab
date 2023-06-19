@@ -65,7 +65,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2889615033536017282, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
       propertyPath: m_Name
-      value: Gatling
+      value: ScaledGatling
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889615033536017282, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+      propertyPath: m_TagString
+      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+--- !u!1 &5502418786580657492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2889615033536017282, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+  m_PrefabInstance: {fileID: 7225318803240486614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5866310522193590831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502418786580657492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7516149, y: 1.1901453, z: 1.7516146}
+  m_Center: {x: -0.005078475, y: 0.5951332, z: 0.15235376}

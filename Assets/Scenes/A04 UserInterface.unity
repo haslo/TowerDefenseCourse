@@ -838,6 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketTurretPrefab: {fileID: 1286454662436601704, guid: 45db989ecc02d477d9b970fdcc1ff608, type: 3}
   gatlingTurretPrefab: {fileID: 5502418786580657492, guid: e2110c82805104cf18f0a4f67695ff2f, type: 3}
+  turretPopup: {fileID: 1660770349}
 --- !u!1 &183060004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,10 +2347,10 @@ RectTransform:
   m_Father: {fileID: 1660770350}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -57.5}
+  m_SizeDelta: {x: 120, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992242582
 MonoBehaviour:
@@ -2394,7 +2395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 992242583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181322817}
+        m_TargetAssemblyTypeName: UserInterfaceInterface, Assembly-CSharp
+        m_MethodName: TurretPopupDelete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &992242583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,10 +2633,10 @@ RectTransform:
   m_Father: {fileID: 1660770350}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -22.5}
+  m_SizeDelta: {x: 120, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185522872
 MonoBehaviour:
@@ -2668,7 +2681,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1185522873}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181322817}
+        m_TargetAssemblyTypeName: UserInterfaceInterface, Assembly-CSharp
+        m_MethodName: TurretPopupUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185522873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,7 +3017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1660770350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3581,10 +3606,10 @@ RectTransform:
   m_Father: {fileID: 1660770350}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -92.5}
+  m_SizeDelta: {x: 120, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144684359
 MonoBehaviour:
@@ -3629,7 +3654,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2144684360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181322817}
+        m_TargetAssemblyTypeName: UserInterfaceInterface, Assembly-CSharp
+        m_MethodName: TurretPopupClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2144684360
 MonoBehaviour:
   m_ObjectHideFlags: 0
