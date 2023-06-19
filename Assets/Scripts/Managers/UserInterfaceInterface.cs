@@ -9,6 +9,7 @@ public class UserInterfaceInterface : MonoBehaviour {
 
     [SerializeField] private GameObject rocketTurretPrefab;
     [SerializeField] private GameObject gatlingTurretPrefab;
+    [SerializeField] private GameObject flamerTurretPrefab;
 
     [SerializeField] private GameObject turretPopup;
     private Dictionary<GameObject, GameObject> turretBases;
@@ -27,6 +28,10 @@ public class UserInterfaceInterface : MonoBehaviour {
 
     public void CreateGatlingTurret() {
         CreateTurret(gatlingTurretPrefab);
+    }
+
+    public void CreateFlamerTurret() {
+        CreateTurret(flamerTurretPrefab);
     }
 
     private void CreateTurret(GameObject prefab) {
