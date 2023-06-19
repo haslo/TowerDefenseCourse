@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 8834615890343037422, guid: 286113889b104415d929a19afed2cf54, type: 3}
+      propertyPath: m_TagString
+      value: Mob
+      objectReference: {fileID: 0}
     - target: {fileID: 8834615890343037423, guid: 286113889b104415d929a19afed2cf54, type: 3}
       propertyPath: m_RootOrder
       value: 0

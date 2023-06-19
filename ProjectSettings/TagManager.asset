@@ -9,6 +9,7 @@ TagManager:
   - OccupiedPlatform
   - EmptyPlatform
   - Turret
+  - Mob
   layers:
   - Default
   - TransparentFX

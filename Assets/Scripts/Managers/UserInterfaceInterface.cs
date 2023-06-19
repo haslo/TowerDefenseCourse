@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UserInterfaceInterface : MonoBehaviour {
+    [SerializeField] private Transform turretParentGroup;
+
     private GameObject newTurret;
     private GameObject menuTurret;
 
@@ -40,8 +42,8 @@ public class UserInterfaceInterface : MonoBehaviour {
             return;
         }
         newTurret = Instantiate(prefab, hit.point, prefab.transform.rotation);
-        var focusCollider = newTurret.GetComponentInChildren<Collider>();
-        if (focusCollider) {
+        var focusColliders = newTurret.GetComponentsInChildren<Collider>();
+        foreach (var focusCollider in focusColliders) {
             focusCollider.enabled = false;
         }
     }
@@ -91,8 +93,11 @@ public class UserInterfaceInterface : MonoBehaviour {
                 newTurret.transform.position = new Vector3(collidedPosition.x, newTurret.transform.position.y, collidedPosition.z);
                 collidedObject.tag = "OccupiedPlatform";
                 turretBases[newTurret] = collidedObject;
-                var focusCollider = newTurret.GetComponentInChildren<Collider>();
-                if (focusCollider) {
+                if (turretParentGroup) {
+                    newTurret.transform.SetParent(turretParentGroup);
+                }
+                var focusColliders = newTurret.GetComponentsInChildren<Collider>();
+                foreach (var focusCollider in focusColliders) {
                     focusCollider.enabled = true;
                 }
             } else {
