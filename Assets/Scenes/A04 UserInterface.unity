@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketTurretPrefab: {fileID: 1286454662436601704, guid: 45db989ecc02d477d9b970fdcc1ff608, type: 3}
+  gatlingTurretPrefab: {fileID: 5502418786580657492, guid: e2110c82805104cf18f0a4f67695ff2f, type: 3}
 --- !u!1 &189018455
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,8 +849,9 @@ GameObject:
   - component: {fileID: 189018459}
   - component: {fileID: 189018458}
   - component: {fileID: 189018457}
+  - component: {fileID: 189018460}
   m_Layer: 5
-  m_Name: ButtonTower2
+  m_Name: ButtonGatling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,6 +960,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189018455}
   m_CullTransparentMesh: 1
+--- !u!114 &189018460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189018455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 181322817}
+          m_TargetAssemblyTypeName: UserInterfaceInterface, Assembly-CSharp
+          m_MethodName: CreateGatlingTurret
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &218162258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,6 +1884,7 @@ GameObject:
   - component: {fileID: 1038685673}
   - component: {fileID: 1038685672}
   - component: {fileID: 1038685671}
+  - component: {fileID: 1038685674}
   m_Layer: 5
   m_Name: ButtonRocket
   m_TagString: Untagged
@@ -1963,6 +1995,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038685669}
   m_CullTransparentMesh: 1
+--- !u!114 &1038685674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038685669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 181322817}
+          m_TargetAssemblyTypeName: UserInterfaceInterface, Assembly-CSharp
+          m_MethodName: CreateRocketTurret
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1288813970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +2117,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tower 2
+  m_text: Gatling
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
