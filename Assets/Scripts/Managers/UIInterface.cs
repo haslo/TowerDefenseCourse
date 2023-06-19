@@ -39,6 +39,10 @@ public class UIInterface : MonoBehaviour {
                 var collidedPosition = collidedObject.transform.position;
                 focusObject.transform.position = new Vector3(collidedPosition.x, focusObject.transform.position.y, collidedPosition.z);
                 collidedObject.tag = "OccupiedPlatform";
+                var focusCollider = focusObject.GetComponentInChildren<Collider>();
+                if (focusCollider) {
+                    focusCollider.enabled = true;
+                }
             } else {
                 Destroy(focusObject);
             }

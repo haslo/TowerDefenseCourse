@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5977019458999684295, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
       propertyPath: m_Name
-      value: Rocket
+      value: ScaledRocket
       objectReference: {fileID: 0}
     - target: {fileID: 6465325370197825149, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
       propertyPath: m_RootOrder
@@ -69,3 +69,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
+--- !u!1 &1286454662436601704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5977019458999684295, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
+  m_PrefabInstance: {fileID: 4839333530773992367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1708473470398376103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286454662436601704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013792681, y: 0.011717838, z: 0.013663448}
+  m_Center: {x: 0, y: 0.005858919, z: 2.7755576e-17}
