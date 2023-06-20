@@ -6,6 +6,8 @@ public class MobBehaviour : MonoBehaviour {
     private Transform goal;
     private bool isKilled = false;
 
+    [SerializeField] private MobDetails mobDetails;
+
     private void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
