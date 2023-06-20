@@ -27,7 +27,13 @@ public class ShooterBehaviour : MonoBehaviour {
 
     private void Update() {
         if (hasTarget) {
-            this.transform.LookAt(currentTarget.transform.position);
+            var targetPosition = currentTarget.transform.position;
+            var corePosition = turretCore.transform.position;
+
+            var coreAim = new Vector3(targetPosition.x, corePosition.y, targetPosition.z);
+            
+            turretCore.transform.LookAt(coreAim);
+            turretGun.transform.LookAt(targetPosition);
         }
     }
 }

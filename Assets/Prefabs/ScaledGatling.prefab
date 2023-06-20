@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &837244790543525916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100878862709335046}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2100878862709335046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837244790543525916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7899775283973676228}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7225318803240486614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,6 +104,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+--- !u!1 &1436927793881947592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8625944820568922910, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+  m_PrefabInstance: {fileID: 7225318803240486614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4854172246832607166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2817009105445448040, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+  m_PrefabInstance: {fileID: 7225318803240486614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5502418786580657492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2889615033536017282, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
@@ -116,3 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bfc7c02b62347ce80e7ec33371824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretCore: {fileID: 4854172246832607166}
+  turretGun: {fileID: 1436927793881947592}
+--- !u!4 &7899775283973676228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 712939761369668114, guid: e729d823276424141b0b75c50c4f8b16, type: 3}
+  m_PrefabInstance: {fileID: 7225318803240486614}
+  m_PrefabAsset: {fileID: 0}

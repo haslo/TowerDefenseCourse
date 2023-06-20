@@ -116,3 +116,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bfc7c02b62347ce80e7ec33371824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretCore: {fileID: 7369886839834657178}
+  turretGun: {fileID: 8215108358186777851}
+--- !u!1 &7369886839834657178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2697617952663958069, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
+  m_PrefabInstance: {fileID: 4839333530773992367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8215108358186777851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3542408428170973012, guid: e2eda2a1b26e92f4c93373d42c9a1185, type: 3}
+  m_PrefabInstance: {fileID: 4839333530773992367}
+  m_PrefabAsset: {fileID: 0}
