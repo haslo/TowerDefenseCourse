@@ -65,5 +65,10 @@ public class MobBehaviour : MonoBehaviour {
         Destroy(gameObject, 0.1f);
         Destroy(healthBar.gameObject, 0.1f);
         isKilled = true;
-        LevelManager.Singleton.MobWasKilled();    }
+        LevelManager.Singleton.MobWasKilled();
+    }
+
+    public bool IsAlive() {
+        return !isKilled;
+    }
 }

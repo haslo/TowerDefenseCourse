@@ -28,7 +28,7 @@ public class ShooterBehaviour : MonoBehaviour {
     private void SetTarget(GameObject newTarget) {
         currentTarget = newTarget;
         if (currentTarget) {
-            currentMobBehaviour = currentTarget.GetComponent<MobBehaviour>();
+            currentMobBehaviour = currentTarget.GetComponentInParent<MobBehaviour>();
             hasTarget = true;
         } else {
             currentMobBehaviour = null;
@@ -38,7 +38,12 @@ public class ShooterBehaviour : MonoBehaviour {
 
     private void Update() {
         if (hasTarget) {
-            SlerpyLookAt(currentTarget.transform.position);
+            if (currentMobBehaviour.IsAlive()) {
+                SlerpyLookAt(currentTarget.transform.position);
+                ShootTarget();
+            } else {
+                SetTarget(null);
+            }
         } else {
             SlerpyLookAt(Vector3.forward * 100);
         }
