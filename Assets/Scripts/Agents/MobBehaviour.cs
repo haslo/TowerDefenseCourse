@@ -9,7 +9,7 @@ public class MobBehaviour : MonoBehaviour {
     private int currentHealth;
     private Slider healthBar;
 
-    [SerializeField] private Slider healthBarPrefab;
+    [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private MobDetails mobDetails;
     private Camera mainCamera;
 
@@ -18,19 +18,19 @@ public class MobBehaviour : MonoBehaviour {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = mobDetails.Speed;
         currentHealth = mobDetails.MaxHealth;
-        healthBar = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
-        healthBar.transform.SetParent(GameObject.Find("Canvas").transform); // TODO find better way of handling this, without that find
+        var healthBarGameObject = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
+        healthBar = healthBarGameObject.GetComponent<Slider>();
+        healthBar.transform.SetParent(GameObject.Find("HealthBars").transform); // TODO find better way of handling this, without that find
         healthBar.maxValue = mobDetails.MaxHealth;
         healthBar.value = currentHealth;
+        UpdateHealth();
+        healthBarGameObject.SetActive(true);
     }
 
     private void Update() {
         if (!isKilled && navMeshAgent.hasPath) {
             UpdateMovement();
             UpdateHealth();
-        }
-        if (healthBar) {
-            healthBar.transform.position = mainCamera.WorldToScreenPoint(transform.position + (Vector3.up * 2f));
         }
     }
 
@@ -44,6 +44,7 @@ public class MobBehaviour : MonoBehaviour {
     private void UpdateHealth() {
         if (healthBar) {
             healthBar.value = currentHealth;
+            healthBar.transform.position = mainCamera.WorldToScreenPoint(transform.position + (Vector3.up * 2f));
         }
     }
 
@@ -62,7 +63,7 @@ public class MobBehaviour : MonoBehaviour {
     public void Die() {
         if (isKilled) return;
         Destroy(gameObject, 0.1f);
-        Destroy(healthBar, 0.1f);
+        Destroy(healthBar.gameObject, 0.1f);
         isKilled = true;
         LevelManager.Singleton.MobWasKilled();    }
 }
