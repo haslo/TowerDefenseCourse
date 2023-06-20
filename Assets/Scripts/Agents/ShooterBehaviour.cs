@@ -2,25 +2,36 @@ using UnityEngine;
 
 public class ShooterBehaviour : MonoBehaviour {
     private GameObject currentTarget;
+    private MobBehaviour currentMobBehaviour;
     private bool hasTarget;
 
     [SerializeField] private GameObject turretCore;
     [SerializeField] private GameObject turretGun;
+    [SerializeField] private int shotPower = 1;
 
     private void Start() {
-        hasTarget = false;
+        SetTarget(null);
     }
 
     private void OnTriggerEnter(Collider other) {
         if (!hasTarget && other.gameObject.CompareTag("Mob")) {
-            currentTarget = other.gameObject;
-            hasTarget = true;
+            SetTarget(other.gameObject);
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject == currentTarget) {
-            currentTarget = null;
+            SetTarget(null);
+        }
+    }
+
+    private void SetTarget(GameObject newTarget) {
+        currentTarget = newTarget;
+        if (currentTarget) {
+            currentMobBehaviour = currentTarget.GetComponent<MobBehaviour>();
+            hasTarget = true;
+        } else {
+            currentMobBehaviour = null;
             hasTarget = false;
         }
     }
@@ -30,6 +41,12 @@ public class ShooterBehaviour : MonoBehaviour {
             SlerpyLookAt(currentTarget.transform.position);
         } else {
             SlerpyLookAt(Vector3.forward * 100);
+        }
+    }
+
+    private void ShootTarget() {
+        if (hasTarget) {
+            currentMobBehaviour.Hit(shotPower);
         }
     }
 
