@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShooterBehaviour : MonoBehaviour {
+    private List<GameObject> potentialTargets;
     private GameObject currentTarget;
     private MobBehaviour currentMobBehaviour;
     private bool hasTarget;
@@ -10,18 +13,37 @@ public class ShooterBehaviour : MonoBehaviour {
     [SerializeField] private int shotPower = 1;
 
     private void Start() {
+        potentialTargets = new List<GameObject>();
         SetTarget(null);
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (!hasTarget && other.gameObject.CompareTag("Mob")) {
-            SetTarget(other.gameObject);
+        if (other.gameObject.CompareTag("Mob") && potentialTargets.IndexOf(other.gameObject) == -1) {
+            potentialTargets.Add(other.gameObject);
         }
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.gameObject == currentTarget) {
+        if (potentialTargets.IndexOf(other.gameObject) == 0) {
             SetTarget(null);
+        }
+        potentialTargets.Remove(other.gameObject);
+    }
+
+    private void UpdateTarget() {
+        // Debug.Log("potential targets: " + potentialTargets.Count + ", hasTarget: " + hasTarget);
+        if (!hasTarget) {
+            if (potentialTargets.Count == 0) {
+                SetTarget(null);
+            } else {
+                // Debug.Log("setting target to " + potentialTargets.First());
+                SetTarget(potentialTargets.First());
+            }
+        } else if (!currentMobBehaviour.IsAlive() || potentialTargets.IndexOf(currentTarget) == -1) {
+            // dead or moved out
+            potentialTargets.Remove(currentTarget);
+            SetTarget(null);
+            UpdateTarget(); // now without hasTarget
         }
     }
 
@@ -37,13 +59,10 @@ public class ShooterBehaviour : MonoBehaviour {
     }
 
     private void Update() {
+        UpdateTarget();
         if (hasTarget) {
-            if (currentMobBehaviour.IsAlive()) {
-                SlerpyLookAt(currentTarget.transform.position);
-                ShootTarget();
-            } else {
-                SetTarget(null);
-            }
+            SlerpyLookAt(currentTarget.transform.position);
+            ShootTarget();
         } else {
             SlerpyLookAt(Vector3.forward * 100);
         }
