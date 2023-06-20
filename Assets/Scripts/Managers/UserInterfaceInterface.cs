@@ -73,7 +73,7 @@ public class UserInterfaceInterface : MonoBehaviour {
                 return;
             }
             var collidedObject = hit.collider.gameObject;
-            if (collidedObject.CompareTag("Turret") && collidedObject != newTurret) {
+            if (!newTurret && collidedObject.CompareTag("Turret")) {
                 menuTurret = collidedObject;
                 turretPopup.SetActive(true);
             }
