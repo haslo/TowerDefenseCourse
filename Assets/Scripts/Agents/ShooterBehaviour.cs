@@ -27,19 +27,24 @@ public class ShooterBehaviour : MonoBehaviour {
 
     private void Update() {
         if (hasTarget) {
-            var targetPosition = currentTarget.transform.position;
-            var corePosition = turretCore.transform.position;
-            var coreAim = new Vector3(targetPosition.x, corePosition.y, targetPosition.z);
-            // turretCore.transform.LookAt(coreAim); // nope, do it with slerp
-            var coreRotation = turretCore.transform.rotation;
-            turretCore.transform.rotation = Quaternion.Slerp(coreRotation, Quaternion.LookRotation(coreAim - corePosition), Time.deltaTime);
-            var gunRotation = turretGun.transform.rotation;
-            // turretGun.transform.LookAt(targetPosition); // nope, do it with slerp
-            var gunPosition = turretGun.transform.position;
-            var distanceToTarget = Vector3.Distance(coreAim, gunPosition);
-            var relativeTargetPosition = gunPosition + (turretGun.transform.forward * distanceToTarget);
-            var gunAim = new Vector3(relativeTargetPosition.x, targetPosition.y, relativeTargetPosition.z);
-            turretGun.transform.rotation = Quaternion.Slerp(gunRotation, Quaternion.LookRotation(gunAim - gunPosition), Time.deltaTime);
+            SlerpyLookAt(currentTarget.transform.position);
+        } else {
+            SlerpyLookAt(Vector3.forward * 100);
         }
+    }
+
+    private void SlerpyLookAt(Vector3 targetPosition) {
+        var corePosition = turretCore.transform.position;
+        var coreAim = new Vector3(targetPosition.x, corePosition.y, targetPosition.z);
+        // turretCore.transform.LookAt(coreAim); // nope, do it with slerp
+        var coreRotation = turretCore.transform.rotation;
+        turretCore.transform.rotation = Quaternion.Slerp(coreRotation, Quaternion.LookRotation(coreAim - corePosition), Time.deltaTime);
+        var gunRotation = turretGun.transform.rotation;
+        // turretGun.transform.LookAt(targetPosition); // nope, do it with slerp
+        var gunPosition = turretGun.transform.position;
+        var distanceToTarget = Vector3.Distance(coreAim, gunPosition);
+        var relativeTargetPosition = gunPosition + (turretGun.transform.forward * distanceToTarget);
+        var gunAim = new Vector3(relativeTargetPosition.x, targetPosition.y, relativeTargetPosition.z);
+        turretGun.transform.rotation = Quaternion.Slerp(gunRotation, Quaternion.LookRotation(gunAim - gunPosition), Time.deltaTime);
     }
 }
