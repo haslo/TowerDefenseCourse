@@ -31,12 +31,10 @@ public class ShooterBehaviour : MonoBehaviour {
     }
 
     private void UpdateTarget() {
-        // Debug.Log("potential targets: " + potentialTargets.Count + ", hasTarget: " + hasTarget);
         if (!hasTarget) {
             if (potentialTargets.Count == 0) {
                 SetTarget(null);
             } else {
-                // Debug.Log("setting target to " + potentialTargets.First());
                 SetTarget(potentialTargets.First());
             }
         } else if (!currentMobBehaviour.IsAlive() || potentialTargets.IndexOf(currentTarget) == -1) {
